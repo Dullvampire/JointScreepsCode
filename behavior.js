@@ -8,17 +8,13 @@ var doUntil = function (condition) {
             for (i = 0; i < children.length; i ++) {
                 let status = children[i](actor, memory);
 
-                if (status == RUNNING) {
-                    return RUNNING;
-                }
-
-                if (status == condition) {
-                    return condition;
+                if (status ===RUNNING || status === condition) {
+                    return status;
                 }
             }
 
             return !condition;
-        }
+        };
     };
 };
 
