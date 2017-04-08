@@ -1,4 +1,4 @@
-var be = require('behavior.js')
+var be = require("behavior")
 
 module.exports = {
     setVariable: function (name, selector) {

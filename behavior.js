@@ -31,6 +31,7 @@ module.exports = {
         return (actor, memory) => {
             for (i = 0; i < children.length; i ++) {
                 let status = children[i](actor, memory);
+                print(status, i, actor)
 
                 if (status == RUNNING) {
                     return RUNNING;
@@ -54,6 +55,6 @@ module.exports = {
         }
     },
 
-    fail: function (actor, memory) { return FAILURE; }
+    fail: function (actor, memory) { return FAILURE; },
     succeed: function (actor, memory) { return SUCCESS; }
 }
