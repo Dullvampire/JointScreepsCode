@@ -1,6 +1,6 @@
-var be = require('behavior.js');
-var ac = require('action.js');
-var ms = require('misc.js');
+var be = require("behavior");
+var ac = require("action");
+var ms = require("misc");
 
 var test = be.seq(
                 ac.setVariable(
