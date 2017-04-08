@@ -11,6 +11,7 @@ module.exports = {
         return (actor, memory) => {
             for (i = 0; i < children.length; i ++) {
                 let status = children[i](actor, memory);
+                console.log(status, i, actor)
 
                 if (status == RUNNING) {
                     return RUNNING;
@@ -31,7 +32,7 @@ module.exports = {
         return (actor, memory) => {
             for (i = 0; i < children.length; i ++) {
                 let status = children[i](actor, memory);
-                print(status, i, actor)
+                console.log(status, i, actor)
 
                 if (status == RUNNING) {
                     return RUNNING;
