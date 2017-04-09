@@ -1,3 +1,7 @@
+var SUCCESS = true;
+var FAILURE = false;
+var RUNNING = null;
+
 module.exports = {
     SUCCESS: true,
     FAILURE: false,
@@ -32,7 +36,7 @@ module.exports = {
         return (actor, memory) => {
             for (i = 0; i < children.length; i ++) {
                 let status = children[i](actor, memory);
-                console.log(status, i, actor)
+                console.log(status, RUNNING, i, actor)
 
                 if (status == RUNNING) {
                     return RUNNING;
