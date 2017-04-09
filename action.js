@@ -4,6 +4,7 @@ module.exports = {
     setVariable: function (name, selector) {
         return (actor, memory) => {
             memory[name] = selector(actor, memory);
+            console.log(actor.name, memory[name], name)
             return be.SUCCESS;
         }
     },
@@ -14,7 +15,7 @@ module.exports = {
 
             if (actor.pos.isEqualTo(memory[name])) {
                 return be.SUCCESS;
-            } else if (r == 0) {
+            } else if (r === 0) {
                 return be.RUNNING;
             } else {
                 return be.FAILURE;
