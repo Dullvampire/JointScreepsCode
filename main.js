@@ -12,7 +12,7 @@ var test = be.seq(
 module.exports.loop = function () {
     Game.spawns.Spawn1.createCreep([WORK, CARRY, MOVE])
 
-    for (let c = 0; c < Game.creeps.length; c ++) {
+    for (let c in Game.creeps) {
         test(Game.creeps[c], {})
     }
 }
