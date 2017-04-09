@@ -1,12 +1,20 @@
 var be = require("behavior");
 var ac = require("action");
-var ms = require("misc");
+var co = require("condition")
 
 var test = be.seq(
-                ac.setVariable(
-                    "source",
-                    ms.getClosestSource),
-                ac.moveTo("source"));
+                be.condition(
+                    co.isCreepEmpty,
+                    be.seq(
+                        ac.setVariable("source", ac.findClosest(FIND_SOURCES)),
+                        be.condition(be.not(co.targetInRange("source", 1)),
+                            ac.moveTo("source")),
+                        ac.harvest("source")),
+                    be.seq(
+                        ac.setVariable("spawn", ac.findClosest(FIND_MY_SPAWNS)),
+                        be.condition(be.not(co.targetInRange("spawn", 1)),
+                            ac.moveTo("spawn")),
+                        ac.transfer("spawn", "energy")));
 
 
 module.exports.loop = function () {
